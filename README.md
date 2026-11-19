@@ -2,6 +2,10 @@
 
 Mimir is the orchestrator of a working agent platform: the main session that reads each request, picks one of six routing branches and either answers directly or hands the work to a named specialist. This repository publishes its contract, three dated versions of the real thing, and the code of Hugin, the shadow router that was built to take over routing and never earned the switch. It is for engineers who run an orchestrating agent over a fleet of specialists and want a worked example, including the parts that did not pan out.
 
+## Why the name Mimir
+
+In Norse myth, Mimir is the wise one Odin goes to for counsel, and Mimir's well is the source of that wisdom. The orchestrator plays both parts. It is the counsel you talk to, deciding what to handle itself and what to hand to a specialist, and it keeps the memory: the lessons and records that make each session better informed than the last. It started as "AM" and was renamed Mimir on 22 April 2026. The names around it come from the same myths: Hugin and Munin, Odin's ravens of thought and memory, and later Yggdrasil, the world tree. [HISTORY.md](HISTORY.md) has the details.
+
 Start with [HISTORY.md](HISTORY.md) for how it got here: the April contract when the orchestrator was still called AM, the rename to Mimir, the Trinity redesign, Hugin and Munin, and the later changes, with dates.
 
 ## What is here
@@ -10,7 +14,7 @@ Start with [HISTORY.md](HISTORY.md) for how it got here: the April contract when
 |---|---|
 | [template/AGENTS.md](template/AGENTS.md) | A generic orchestrator contract you can copy and fill in. It has the six routing branches, delegation to named specialists, verify-before-assert, a memory section and a hosts section. Owner-specific values are placeholders such as `{{OWNER}}`. |
 | [snapshots/](snapshots/) | The real contract at three dates: [19 April 2026](snapshots/2026-04-19-v1-am.md) (v1, the orchestrator called AM), [22 April 2026](snapshots/2026-04-22-mimir-v2.md) (renamed to Mimir) and [30 June 2026](snapshots/2026-06-30-provider-neutral-brain.md) (the provider-neutral `AGENTS.md`). |
-| [hugin/](hugin/) | Hugin's routing decision logic and its shadow-replay side (recorder, replay, comparison and divergence count), with tests that run on synthetic data. Hugin is not routing live; [hugin/README.md](hugin/README.md) leads with the gap in its evidence before giving any number. |
+| [hugin/](hugin/) | Hugin's measurement harness (reply parser, comparison and shadow replay), refactored for publication and published without the router prompt, with tests that run on synthetic data. Hugin is not routing live; [hugin/README.md](hugin/README.md) leads with the gap in its evidence before giving any number. |
 | [HISTORY.md](HISTORY.md) | The dated history for engineers. |
 
 ## Reading the snapshots
